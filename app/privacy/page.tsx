@@ -4,7 +4,7 @@ import Link from "next/link";
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Anchored",
+  title: "Privacy Policy — MiraDawn",
   robots: { index: false },
 };
 

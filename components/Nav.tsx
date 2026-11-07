@@ -10,7 +10,7 @@ export default function Nav() {
               <path d="M9 6.5 L17 12 L9 17.5 Z" />
             </svg>
           </span>
-          <span className="text-lg font-bold tracking-tight text-slate-900">Anchored</span>
+          <span className="text-lg font-bold tracking-tight text-slate-900">MiraDawn</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
           <a href="#features" className="hover:text-brand-700">How it works</a>

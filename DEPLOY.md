@@ -1,4 +1,4 @@
-# 部署清单（Anchored Landing）— 从本地到正式上线
+# 部署清单（MiraDawn Landing）— 从本地到正式上线
 
 > 按顺序执行，全程约 1 小时（不含域名注册等待）。
 
@@ -9,7 +9,7 @@ git config --global user.name "你的名字"
 git config --global user.email "你的GitHub邮箱"
 ```
 
-⚠️ 本仓库当前的 commit 用了占位身份（`Anchored Local <dev@local.invalid>`），推送前可用
+⚠️ 本仓库当前的 commit 用了占位身份（`MiraDawn Local <dev@local.invalid>`），推送前可用
 `git commit --amend --reset-author` 修正最近一条，或保持现状（不影响功能）。
 
 ## 1. 推到 GitHub

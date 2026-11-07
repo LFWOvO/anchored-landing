@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Anchored — turn videos into blog posts that actually rank";
+export const alt = "MiraDawn — turn videos into blog posts that actually rank";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default function Image() {
           >
             ▶
           </div>
-          <div style={{ fontSize: "38px", fontWeight: 700, letterSpacing: "-1px" }}>Anchored</div>
+          <div style={{ fontSize: "38px", fontWeight: 700, letterSpacing: "-1px" }}>MiraDawn</div>
         </div>
         <div style={{ fontSize: "62px", fontWeight: 800, lineHeight: 1.12, maxWidth: "920px", letterSpacing: "-2px" }}>
           Turn videos into blog posts that actually rank.

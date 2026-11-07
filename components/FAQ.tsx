@@ -2,11 +2,11 @@
 export const FAQS = [
   {
     q: "Will Google penalize AI-generated content?",
-    a: "Google rewards helpful content regardless of how it was produced — what gets penalized is unedited, unverified spam. Anchored posts are fact-checked against your video, cite it as the primary source, and come with a quality score so you stay in control of what ships.",
+    a: "Google rewards helpful content regardless of how it was produced — what gets penalized is unedited, unverified spam. MiraDawn posts are fact-checked against your video, cite it as the primary source, and come with a quality score so you stay in control of what ships.",
   },
   {
     q: "How is this different from VideoToBlog or other converters?",
-    a: "Those tools stop at a rough draft — “90% there” is their own users’ phrasing. Anchored handles the last 10%: timestamp-anchored claims, a faithfulness check on every paragraph, and a publish-ready edit tuned to your voice.",
+    a: "Those tools stop at a rough draft — “90% there” is their own users’ phrasing. MiraDawn handles the last 10%: timestamp-anchored claims, a faithfulness check on every paragraph, and a publish-ready edit tuned to your voice.",
   },
   {
     q: "What does “fact-anchored” mean exactly?",

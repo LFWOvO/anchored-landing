@@ -34,7 +34,7 @@ export function Footer() {
               <path d="M9 6.5 L17 12 L9 17.5 Z" />
             </svg>
           </span>
-          <span className="font-bold text-slate-700">Anchored</span>
+          <span className="font-bold text-slate-700">MiraDawn</span>
           <span>© 2026</span>
         </div>
         <p className="text-slate-400">Built for creators who publish.</p>

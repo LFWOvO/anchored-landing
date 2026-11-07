@@ -15,7 +15,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "SoftwareApplication",
-      name: "Anchored",
+      name: "MiraDawn",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       url: siteUrl,
@@ -31,7 +31,7 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      name: "Anchored",
+      name: "MiraDawn",
       url: siteUrl,
     },
     {

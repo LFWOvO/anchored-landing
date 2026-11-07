@@ -35,7 +35,7 @@ export function Compare() {
         </h2>
         <p className="mt-4 text-lg text-slate-600">
           Users of the popular tools agree: the draft gets you close, then you spend an hour
-          rewriting it. Anchored finishes the job.
+          rewriting it. MiraDawn finishes the job.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export function Compare() {
             <tr className="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
               <th className="px-6 py-4 font-semibold">&nbsp;</th>
               <th className="px-6 py-4 font-semibold">Other AI converters</th>
-              <th className="px-6 py-4 font-semibold text-brand-700">Anchored</th>
+              <th className="px-6 py-4 font-semibold text-brand-700">MiraDawn</th>
             </tr>
           </thead>
           <tbody>
@@ -160,7 +160,7 @@ export function BeforeAfter() {
         {/* After */}
         <div className="relative rounded-2xl border-2 border-brand-200 bg-white p-7 shadow-soft">
           <div className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-brand-600 to-fuchsia-600 px-3 py-1 text-xs font-bold text-white">
-            Anchored
+            MiraDawn
           </div>
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
@@ -200,7 +200,7 @@ const AUDIENCES = [
   {
     icon: "🤝",
     title: "Got an audience?",
-    body: "Earn 30–50% sharing Anchored with your students or subscribers. You bring the audience; we bring the tool.",
+    body: "Earn 30–50% sharing MiraDawn with your students or subscribers. You bring the audience; we bring the tool.",
   },
 ];
 
