@@ -19,10 +19,10 @@ export default function Nav() {
           <a href="#faq" className="hover:text-brand-700">FAQ</a>
         </nav>
         <a
-          href="#waitlist"
+          href="#order"
           className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
         >
-          Reserve my slot — $29
+          Pilot post — $99
         </a>
       </div>
     </header>

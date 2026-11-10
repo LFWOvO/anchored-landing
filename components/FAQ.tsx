@@ -33,8 +33,8 @@ export const FAQS = [
     a: "Yes. Session replays, webinar recordings and cohort lesson recordings are all valid input. That is the workflow most coaches tell us they actually need — a course that keeps selling after the live call ends.",
   },
   {
-    q: "Why a $29 deposit?",
-    a: "It funds your pilot build slot and filters out people who will never ship. The deposit is credited 2× against whichever plan you pick at launch, and it is refunded in full any time before we start working on your material.",
+    q: "How does payment work?",
+    a: "Outline first, pay second: we send you the outline of your post within 24h, and you only pay the $99 once you approve it (Wise, bank transfer or card). The full fact-checked post then arrives within 48h. One revision round is included.",
   },
   {
     q: "When do I get access?",

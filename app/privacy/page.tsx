@@ -25,12 +25,12 @@ export default function Privacy() {
           </p>
         </section>
         <section>
-          <h2 className="text-lg font-bold text-slate-900">Your deposit and payment details</h2>
+          <h2 className="text-lg font-bold text-slate-900">Orders and payment details</h2>
           <p className="mt-2">
-            The $29 pilot deposit is paid through a third-party payment provider (PayPal, Wise or
+            The $99 pilot order is paid through a third-party payment provider (PayPal, Wise or
             Alipay), not through this site. We never receive or store your card or bank details —
             we only see the transaction reference, the amount, and the email address you used.
-            If you cancel before we begin work on your material, the deposit is refunded in full.
+            If you cancel before we begin work on your material, the order is refunded in full.
           </p>
         </section>
         <section>
@@ -53,7 +53,7 @@ export default function Privacy() {
         <section>
           <h2 className="text-lg font-bold text-slate-900">How long we keep it</h2>
           <p className="mt-2">
-            If you reserve a slot but do not complete the deposit, we delete your record within 30
+            If you submit an order but do not complete payment, we delete your record within 30
             days. Customers who complete a pilot keep their reservation record for as long as they
             are a customer, and it is deleted on request.
           </p>

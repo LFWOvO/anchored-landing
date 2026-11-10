@@ -59,19 +59,19 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#waitlist"
+              href="#order"
               className="btn-primary"
               onClick={() => track("cta_click", { location: "hero", variant })}
             >
-              Reserve my pilot slot — $29 today, credited 2× at launch
+              Get my pilot post — $99 · outline in 24h
             </a>
             <a href="#compare" className="btn-secondary">
               See the difference ↓
             </a>
           </div>
           <p className="mt-4 text-sm text-slate-500">
-            Your content stays yours · Full refund before we start building · Built by an ML
-            engineer, not marketers
+            Approve the outline before you pay · Every claim anchored to your video · Built by an
+            ML engineer, not marketers
           </p>
         </div>
 

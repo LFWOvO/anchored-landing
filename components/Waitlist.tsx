@@ -4,23 +4,24 @@ import { useEffect, useState } from "react";
 import { getUtms, getVariant, makeSlug, track, type Variant } from "@/lib/client";
 
 const ROLES = [
-  "Cohort courses & webinars",
-  "YouTube videos",
+  "Coaching / course business",
   "Podcast",
+  "YouTube channel",
   "Email newsletter",
   "I run client accounts",
   "Other",
 ];
 const VOLUMES = ["1 video / week", "2–4 videos / week", "5+ videos / week"];
 const AUDIENCES = ["YouTube", "Podcast", "Email list", "Cohort courses", "LinkedIn"];
-const DEPOSIT_URL = process.env.NEXT_PUBLIC_DEPOSIT_PAYMENT_URL ?? "";
+const PAYMENT_NOTE =
+  "You only pay after you approve the outline. Payment via Wise, bank transfer or card link in the email.";
 
-export default function Waitlist() {
+export default function OrderForm() {
   const [email, setEmail] = useState("");
+  const [videoLink, setVideoLink] = useState("");
   const [role, setRole] = useState(ROLES[0]);
   const [volume, setVolume] = useState(VOLUMES[1]);
   const [audience, setAudience] = useState(AUDIENCES[0]);
-  const [plan, setPlan] = useState<string | null>(null);
   const [variant, setVariant] = useState<Variant>("a");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [refLink, setRefLink] = useState("");
@@ -29,12 +30,6 @@ export default function Waitlist() {
 
   useEffect(() => {
     setVariant(getVariant());
-    const onPlan = (e: Event) => {
-      const detail = (e as CustomEvent).detail;
-      if (detail?.plan) setPlan(detail.plan);
-    };
-    window.addEventListener("anchored:plan", onPlan);
-    return () => window.removeEventListener("anchored:plan", onPlan);
   }, []);
 
   async function submit(e: React.FormEvent) {
@@ -51,7 +46,7 @@ export default function Waitlist() {
           role,
           videosPerWeek: volume,
           audience,
-          plan,
+          videoLink,
           variant,
           utm: getUtms(),
         }),
@@ -65,7 +60,7 @@ export default function Waitlist() {
       const slug = data.refSlug || makeSlug(email.trim().toLowerCase());
       setRefLink(`${window.location.origin}/?ref=${slug}`);
       setState("done");
-      track("deposit_reservation", { plan, audience, role });
+      track("order_submitted", { audience, role });
     } catch {
       setState("error");
       setErrorMsg("Network error. Try again?");
@@ -83,15 +78,15 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="scroll-mt-20 border-t border-slate-200 bg-slate-50 py-16 lg:py-24">
+    <section id="order" className="scroll-mt-20 border-t border-slate-200 bg-slate-50 py-16 lg:py-24">
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
         {state !== "done" ? (
           <>
             <div className="text-center">
-              <h2 className="section-title">Reserve your pilot build slot — $29</h2>
+              <h2 className="section-title">Order your pilot post — $99</h2>
               <p className="mt-4 text-lg text-slate-600">
-                $29 reserves your slot in the pilot batch. It is credited 2× against any plan at
-                launch, or refunded in full any time before we start building.
+                Outline within 24h for your approval. Full post within 48h after that. You only
+                pay once you approve the outline.
               </p>
             </div>
 
@@ -99,20 +94,6 @@ export default function Waitlist() {
               onSubmit={submit}
               className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8"
             >
-              {plan && (
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-700">
-                  Interested in: {plan}
-                  <button
-                    type="button"
-                    onClick={() => setPlan(null)}
-                    className="text-brand-400 hover:text-brand-700"
-                    aria-label="clear plan"
-                  >
-                    ✕
-                  </button>
-                </div>
-              )}
-
               <label className="block text-sm font-semibold text-slate-800" htmlFor="wl-email">
                 Email
               </label>
@@ -125,6 +106,23 @@ export default function Waitlist() {
                 placeholder="you@yourchannel.com"
                 className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
               />
+
+              <label className="mt-5 block text-sm font-semibold text-slate-800" htmlFor="wl-video">
+                Link to the video you want converted
+              </label>
+              <input
+                id="wl-video"
+                type="url"
+                required
+                value={videoLink}
+                onChange={(e) => setVideoLink(e.target.value)}
+                placeholder="https://youtube.com/watch?v=…"
+                className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              />
+              <p className="mt-1.5 text-xs text-slate-400">
+                Unlisted YouTube links are fine. Webinar replays and file uploads come later by
+                email.
+              </p>
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <div>
@@ -176,48 +174,35 @@ export default function Waitlist() {
               </div>
 
               <button type="submit" disabled={state === "sending"} className="btn-primary mt-6 w-full disabled:opacity-60">
-                {state === "sending" ? "Reserving…" : "Reserve my slot — $29 deposit"}
+                {state === "sending" ? "Sending…" : "Order my pilot post — $99"}
               </button>
               {state === "error" && (
                 <p className="mt-3 text-center text-sm text-rose-600">{errorMsg}</p>
               )}
-              <p className="mt-3 text-center text-xs text-slate-400">
-                No spam, ever. One email with your payment link, and one when your build starts.
-              </p>
+              <p className="mt-3 text-center text-xs text-slate-400">{PAYMENT_NOTE}</p>
             </form>
           </>
         ) : (
           <div className="rounded-2xl border border-emerald-200 bg-white p-8 text-center shadow-card">
-            <div className="text-4xl">🎉</div>
-            <h2 className="mt-3 text-2xl font-bold text-slate-900">Your pilot slot is reserved.</h2>
+            <div className="text-4xl">🎬</div>
+            <h2 className="mt-3 text-2xl font-bold text-slate-900">Order received.</h2>
             <p className="mt-2 text-slate-600">
-              Slot held for <span className="font-semibold text-slate-800">{email}</span>. Pay the
-              $29 deposit to lock it in — credited 2× against any plan at launch, or refunded in
-              full any time before we start.
+              We&rsquo;ll email you within 24h with the <strong>outline</strong> of your post —
+              structure, key points and the timestamp anchors we found in your video.
             </p>
-
-            {DEPOSIT_URL ? (
-              <a
-                href={DEPOSIT_URL}
-                className="btn-primary mt-6 inline-flex w-full items-center justify-center"
-                onClick={() => track("deposit_paid", { plan, audience })}
-              >
-                Pay the $29 deposit
-              </a>
-            ) : (
-              <p className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-                Your payment link arrives by email within 24 hours. Prefer another route? Reply to
-                that email and we will send PayPal or Wise instructions instead.
-              </p>
-            )}
+            <p className="mt-3 text-slate-600">
+              Approve the outline, pay the $99 (Wise or card — link in the email), and the full
+              fact-checked post arrives within 48h. Not happy with the outline? You walk away
+              having paid nothing.
+            </p>
 
             <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-left">
               <p className="text-sm font-semibold text-slate-800">
                 Coach or newsletter writer with an audience?
               </p>
               <p className="mt-1 text-xs text-slate-500">
-                Earn 30–50% of every subscription your students or subscribers sign up through your
-                link.
+                Earn 30–50% of every subscription your students or subscribers sign up through
+                your link.
               </p>
               <div className="mt-3 flex gap-2">
                 <input
