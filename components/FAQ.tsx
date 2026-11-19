@@ -34,7 +34,7 @@ export const FAQS = [
   },
   {
     q: "How does payment work?",
-    a: "Outline first, pay second: we send you the outline of your post within 24h, and you only pay the $99 once you approve it (Wise, bank transfer or card). The full fact-checked post then arrives within 48h. One revision round is included.",
+    a: "Outline first, pay second: we send you the outline of your post within 24h, and you only pay the $49 once you approve it (card via Dodo checkout, or bank transfer). The full fact-checked post then arrives within 48h. One revision round is included.",
   },
   {
     q: "When do I get access?",

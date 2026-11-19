@@ -27,8 +27,8 @@ export default function Privacy() {
         <section>
           <h2 className="text-lg font-bold text-slate-900">Orders and payment details</h2>
           <p className="mt-2">
-            The $99 pilot order is paid through a third-party payment provider (PayPal, Wise or
-            Alipay), not through this site. We never receive or store your card or bank details —
+            The $49 pilot order is paid through a third-party payment provider (Dodo Payments —
+            card, or bank transfer on request), not through this site. We never receive or store your card or bank details —
             we only see the transaction reference, the amount, and the email address you used.
             If you cancel before we begin work on your material, the order is refunded in full.
           </p>

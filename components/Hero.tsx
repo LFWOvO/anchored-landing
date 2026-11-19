@@ -63,7 +63,7 @@ export default function Hero() {
               className="btn-primary"
               onClick={() => track("cta_click", { location: "hero", variant })}
             >
-              Get my pilot post — $99 · outline in 24h
+              Get my pilot post — $49 · outline in 24h
             </a>
             <a href="#compare" className="btn-secondary">
               See the difference ↓

@@ -7,17 +7,17 @@ export function FinalCTA() {
           Stop rewriting drafts. Start ranking.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-          Your videos already contain your best blog posts. Order your pilot post for $99 —
+          Your videos already contain your best blog posts. Order your pilot post for $49 —
           outline in 24h, full post in 48h, and you approve the outline before paying.
         </p>
         <a
           href="#order"
           className="mt-8 inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-bold text-brand-800 shadow-soft transition hover:bg-brand-50"
         >
-          Order my pilot post — $99
+          Order my pilot post — $49
         </a>
         <p className="mt-4 text-sm text-brand-200">
-          Beta pricing · 1 revision included · Pay only after you approve the outline
+          Launch pricing · 1 revision included · Pay only after you approve the outline
         </p>
       </div>
     </section>

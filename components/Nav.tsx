@@ -22,7 +22,7 @@ export default function Nav() {
           href="#order"
           className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
         >
-          Pilot post — $99
+          Pilot post — $49
         </a>
       </div>
     </header>

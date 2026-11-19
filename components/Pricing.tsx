@@ -26,8 +26,8 @@ export default function Pricing() {
         <span className="eyebrow">Pricing</span>
         <h2 className="section-title mt-4">One video in. One publish-ready post out.</h2>
         <p className="mt-4 text-lg text-slate-600">
-          <strong className="text-brand-700">$99 per pilot post</strong> — beta pricing for the
-          first 20 orders, then <span className="line-through">$149</span>. You approve the
+          <strong className="text-brand-700">$49 for your first post</strong> — launch pricing,
+          then $75 per post. You approve the
           outline before you pay anything.
         </p>
       </div>
@@ -35,17 +35,17 @@ export default function Pricing() {
       <div className="mx-auto mt-12 max-w-2xl">
         <div className="relative rounded-2xl border-2 border-brand-300 bg-white p-8 shadow-soft ring-1 ring-brand-200 sm:p-10">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-600 to-fuchsia-600 px-4 py-1.5 text-sm font-bold text-white">
-            Pilot post — beta pricing
+            Launch offer — first post
           </div>
 
           <div className="flex items-baseline justify-between gap-4">
             <h3 className="text-xl font-bold text-slate-900">Pilot Post</h3>
             <div className="text-right">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-extrabold tracking-tight text-slate-900">$99</span>
-                <span className="text-sm text-slate-400 line-through">$149</span>
+                <span className="text-4xl font-extrabold tracking-tight text-slate-900">$49</span>
+                <span className="text-sm text-slate-400 line-through">$99</span>
               </div>
-              <div className="text-xs text-slate-500">per post · beta pricing</div>
+              <div className="text-xs text-slate-500">first post · then $75/post</div>
             </div>
           </div>
 
@@ -67,7 +67,7 @@ export default function Pricing() {
             onClick={() => pick("Pilot Post")}
             className="mt-8 w-full rounded-xl bg-brand-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-brand-700"
           >
-            Order my pilot post — $99
+            Order my pilot post — $49
           </button>
           <p className="mt-3 text-center text-xs text-slate-400">
             You approve the outline before paying. Nothing is charged for the outline itself.
@@ -80,8 +80,8 @@ export default function Pricing() {
             <div className="mt-1 text-xs">Real delivery capacity — each post gets hand verification</div>
           </div>
           <div className="rounded-xl border border-slate-200 bg-white p-4 text-center">
-            <div className="font-bold text-slate-900">Beta: $99</div>
-            <div className="mt-1 text-xs">First 20 orders, then $149/post</div>
+            <div className="font-bold text-slate-900">Launch: $49</div>
+            <div className="mt-1 text-xs">First post, then $75/post</div>
           </div>
           <div className="rounded-xl border border-slate-200 bg-white p-4 text-center">
             <div className="font-bold text-slate-900">Teams later</div>

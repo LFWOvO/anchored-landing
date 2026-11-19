@@ -83,7 +83,7 @@ export default function OrderForm() {
         {state !== "done" ? (
           <>
             <div className="text-center">
-              <h2 className="section-title">Order your pilot post — $99</h2>
+              <h2 className="section-title">Order your pilot post — $49</h2>
               <p className="mt-4 text-lg text-slate-600">
                 Outline within 24h for your approval. Full post within 48h after that. You only
                 pay once you approve the outline.
@@ -174,7 +174,7 @@ export default function OrderForm() {
               </div>
 
               <button type="submit" disabled={state === "sending"} className="btn-primary mt-6 w-full disabled:opacity-60">
-                {state === "sending" ? "Sending…" : "Order my pilot post — $99"}
+                {state === "sending" ? "Sending…" : "Order my pilot post — $49"}
               </button>
               {state === "error" && (
                 <p className="mt-3 text-center text-sm text-rose-600">{errorMsg}</p>
@@ -191,7 +191,7 @@ export default function OrderForm() {
               structure, key points and the timestamp anchors we found in your video.
             </p>
             <p className="mt-3 text-slate-600">
-              Approve the outline, pay the $99 (Wise or card — link in the email), and the full
+              Approve the outline, pay the $49 (card via Dodo checkout — link in the email), and the full
               fact-checked post arrives within 48h. Not happy with the outline? You walk away
               having paid nothing.
             </p>
