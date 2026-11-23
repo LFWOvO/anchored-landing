@@ -14,7 +14,7 @@ const ROLES = [
 const VOLUMES = ["1 video / week", "2–4 videos / week", "5+ videos / week"];
 const AUDIENCES = ["YouTube", "Podcast", "Email list", "Cohort courses", "LinkedIn"];
 const PAYMENT_NOTE =
-  "You only pay after you approve the outline. Payment via Wise, bank transfer or card link in the email.";
+  "Instant Draft: pay upfront via the emailed checkout link. Pilot Post & Deep Dive: you only pay after approving the outline.";
 
 export default function OrderForm() {
   const [email, setEmail] = useState("");
@@ -22,6 +22,7 @@ export default function OrderForm() {
   const [role, setRole] = useState(ROLES[0]);
   const [volume, setVolume] = useState(VOLUMES[1]);
   const [audience, setAudience] = useState(AUDIENCES[0]);
+  const [plan, setPlan] = useState("Pilot Post — $49");
   const [variant, setVariant] = useState<Variant>("a");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [refLink, setRefLink] = useState("");
@@ -30,6 +31,12 @@ export default function OrderForm() {
 
   useEffect(() => {
     setVariant(getVariant());
+    const onPlan = (e: Event) => {
+      const detail = (e as CustomEvent<{ plan?: string }>).detail;
+      if (detail?.plan) setPlan(detail.plan);
+    };
+    window.addEventListener("anchored:plan", onPlan);
+    return () => window.removeEventListener("anchored:plan", onPlan);
   }, []);
 
   async function submit(e: React.FormEvent) {
@@ -43,6 +50,7 @@ export default function OrderForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           email,
+          plan,
           role,
           videosPerWeek: volume,
           audience,
@@ -60,7 +68,7 @@ export default function OrderForm() {
       const slug = data.refSlug || makeSlug(email.trim().toLowerCase());
       setRefLink(`${window.location.origin}/?ref=${slug}`);
       setState("done");
-      track("order_submitted", { audience, role });
+      track("order_submitted", { audience, role, plan });
     } catch {
       setState("error");
       setErrorMsg("Network error. Try again?");
@@ -83,10 +91,10 @@ export default function OrderForm() {
         {state !== "done" ? (
           <>
             <div className="text-center">
-              <h2 className="section-title">Order your pilot post — $49</h2>
+              <h2 className="section-title">Order your post</h2>
               <p className="mt-4 text-lg text-slate-600">
-                Outline within 24h for your approval. Full post within 48h after that. You only
-                pay once you approve the outline.
+                Pick a tier, drop your video link. Instant Draft lands within 24h; Pilot Post and
+                Deep Dive start with an outline you approve before paying.
               </p>
             </div>
 
@@ -94,7 +102,21 @@ export default function OrderForm() {
               onSubmit={submit}
               className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8"
             >
-              <label className="block text-sm font-semibold text-slate-800" htmlFor="wl-email">
+              <label className="block text-sm font-semibold text-slate-800" htmlFor="wl-plan">
+                Tier
+              </label>
+              <select
+                id="wl-plan"
+                value={plan}
+                onChange={(e) => setPlan(e.target.value)}
+                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              >
+                <option>Instant Draft — $19</option>
+                <option>Pilot Post — $49</option>
+                <option>Deep Dive — $75</option>
+              </select>
+
+              <label className="mt-5 block text-sm font-semibold text-slate-800" htmlFor="wl-email">
                 Email
               </label>
               <input
@@ -174,7 +196,7 @@ export default function OrderForm() {
               </div>
 
               <button type="submit" disabled={state === "sending"} className="btn-primary mt-6 w-full disabled:opacity-60">
-                {state === "sending" ? "Sending…" : "Order my pilot post — $49"}
+                {state === "sending" ? "Sending…" : `Place my order — ${plan}`}
               </button>
               {state === "error" && (
                 <p className="mt-3 text-center text-sm text-rose-600">{errorMsg}</p>
@@ -191,8 +213,9 @@ export default function OrderForm() {
               structure, key points and the timestamp anchors we found in your video.
             </p>
             <p className="mt-3 text-slate-600">
-              Approve the outline, pay the $49 (card via Dodo checkout — link in the email), and the full
-              fact-checked post arrives within 48h. Not happy with the outline? You walk away
+              Instant Draft: pay via the checkout link in the email and your post lands within
+              24h. Pilot Post &amp; Deep Dive: approve the outline first, pay, and the full
+              fact-checked post arrives within 48h — not happy with the outline, you walk away
               having paid nothing.
             </p>
 

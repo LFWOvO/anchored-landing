@@ -34,7 +34,11 @@ export const FAQS = [
   },
   {
     q: "How does payment work?",
-    a: "Outline first, pay second: we send you the outline of your post within 24h, and you only pay the $49 once you approve it (card via Dodo checkout, or bank transfer). The full fact-checked post then arrives within 48h. One revision round is included.",
+    a: "Instant Draft ($19): pay upfront via the checkout link and the post lands within 24h. Pilot Post ($49) and Deep Dive ($75): outline first, pay second — you only pay once you approve the outline (card via Dodo checkout, or bank transfer). The full fact-checked post then arrives within 48h. Revision rounds are included.",
+  },
+  {
+    q: "What's the difference between Instant Draft and Pilot Post?",
+    a: "Instant Draft ($19) is fully machine-processed: you get the anchored post plus a mechanical fact-check report, and flagged items are disclosed so you can polish them yourself. Pilot Post ($49) adds a human pass — every flagged item is reviewed and cleared, and you approve the outline before paying. Take Instant if you have an editor; take Pilot if the content has to be right the first time.",
   },
   {
     q: "When do I get access?",
